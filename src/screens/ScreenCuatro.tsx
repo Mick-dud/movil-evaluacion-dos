@@ -4,10 +4,13 @@ import { TitleComponent } from '../components/TitleComponent'
 import { styles } from '../theme/appTheme'
 import { ButtonComponent } from '../commons/ButtonComponent'
 import { INPUT_COLOR } from '../commons/constants'
+import { CommonActions, useNavigation } from '@react-navigation/native'
 
 
 
-export const ScreenCuatro = ({ navigation }: any) => {
+export const ScreenCuatro = () => {
+    const navigation = useNavigation()
+
     const [num1, setNum1] = useState('');
     const [num2, setNum2] = useState('');
     const [resultado, setResultado] = useState('');
@@ -32,7 +35,7 @@ export const ScreenCuatro = ({ navigation }: any) => {
     };
 
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.title}>ejercicio 1</Text>
             <TextInput
                 value={num1}
@@ -47,14 +50,14 @@ export const ScreenCuatro = ({ navigation }: any) => {
                 style={{ backgroundColor: '#fff', borderColor: INPUT_COLOR }}
             />
             <ButtonComponent
-                textButton="Dividir"
+                textButton="Ejecutar"
                 handlePress={dividir}
             />
 
             <Text style={{ fontSize: 20, marginTop: 20 }}>{resultado}</Text>
             <ButtonComponent
                 textButton="Retroceder"
-                handlePress={() => navigation.navigate('ScreenOne')}
+                handlePress={() => navigation.dispatch(CommonActions.navigate({ name: 'Home' }))}
             />
         </View>
     )

@@ -3,9 +3,11 @@ import { Image, View } from 'react-native'
 import { TitleComponent } from '../components/TitleComponent'
 import { ButtonComponent } from '../commons/ButtonComponent'
 import { styles } from '../theme/appTheme'
+import { CommonActions, useNavigation } from '@react-navigation/native'
 
 
-export const ScreenDos = ({ navigation }: any) => {
+export const ScreenDos = () => {
+    const navigation = useNavigation ()
     return (
         <View style={styles.container}>
             <TitleComponent title="Pantalla Dos" />
@@ -15,7 +17,7 @@ export const ScreenDos = ({ navigation }: any) => {
             />
             <ButtonComponent  
                 textButton="Regresar"
-                handlePress={() => navigation.navigate('ScreenUno')}
+                handlePress={() => navigation.dispatch(CommonActions.navigate({name:'Home'}))}
             />
         </View>
     )

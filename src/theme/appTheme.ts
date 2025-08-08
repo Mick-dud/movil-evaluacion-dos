@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     image: {
         width: 350,
         height: 350,
-        marginBottom: 20,
+        marginBottom: 10,
     },
     title: {
         fontSize: 35,

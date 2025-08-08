@@ -3,8 +3,11 @@ import { Alert, Text, TextInput, View } from 'react-native'
 import { INPUT_COLOR } from '../commons/constants';
 import { styles } from '../theme/appTheme';
 import { ButtonComponent } from '../commons/ButtonComponent';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 
-export const ScreenCinco = ({ navigation }: any) => {
+export const ScreenCinco = () => {
+    const navigation = useNavigation()
+
     const [num1, setNum1] = useState('');
     const [num2, setNum2] = useState('');
     const [resultado, setResultado] = useState('');
@@ -51,7 +54,7 @@ export const ScreenCinco = ({ navigation }: any) => {
             <Text style={{ fontSize: 20, marginTop: 20 }}>{resultado}</Text>
             <ButtonComponent
                 textButton="Retroceder"
-                handlePress={() => navigation.navigate('ScreenOne')}
+                handlePress={() => navigation.dispatch(CommonActions.navigate({ name: 'Home' }))}
             />
         </View>
     );

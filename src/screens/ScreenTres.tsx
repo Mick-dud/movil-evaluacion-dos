@@ -4,8 +4,11 @@ import { TitleComponent } from '../components/TitleComponent'
 import { BodyComponent } from '../components/BodyComponent'
 import { ButtonComponent } from '../commons/ButtonComponent'
 import { styles } from '../theme/appTheme'
+import { CommonActions, useNavigation } from '@react-navigation/native'
 
-export const ScreenTres = ({ navigation }: any) => {
+
+export const ScreenTres = () => {
+    const navigation = useNavigation ()
     return (
         <View>
             <TitleComponent title="Pantalla Tres" />
@@ -16,7 +19,7 @@ export const ScreenTres = ({ navigation }: any) => {
             />
             <ButtonComponent
                 textButton="Regresar"
-                handlePress={() => navigation.navigate('ScreenUno')}
+                handlePress={() => navigation.dispatch(CommonActions.navigate({name:'Home'}))}
             />
         </View>
     )
